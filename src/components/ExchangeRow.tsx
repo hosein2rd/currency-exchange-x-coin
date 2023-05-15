@@ -8,8 +8,8 @@ type ExchangeRowProps = { addingMode: boolean };
 const ExchangeRow = ({ addingMode = false }: ExchangeRowProps) => {
   return (
     <div
-      className={`flex flex-row justify-between p-5 ${
-        !addingMode ? "bg-gray-100" : ""
+      className={`flex flex-row justify-between rounded-md p-5 ${
+        !addingMode ? "bg-gray-100" : "bg-white"
       }`}
     >
       <div className="flex flex-col">
