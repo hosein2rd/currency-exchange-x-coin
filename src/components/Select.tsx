@@ -7,7 +7,7 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ className = "", options = [], ...props }, ref) => (
-    <select ref={ref} className={`${className}`} {...props}>
+    <select ref={ref} className={`bg-inherit min-w-0 ${className}`} {...props}>
       {options.map(({ value, title }) => (
         <option value={value}>{title}</option>
       ))}
