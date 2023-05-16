@@ -3,9 +3,12 @@ import Balance from "./Balance";
 import Input from "./Input";
 import Select from "./Select";
 
-type ExchangeRowProps = { addingMode: boolean };
+type ExchangeRowProps = {
+  addingMode: boolean;
+  onSelect: (value: string) => void;
+};
 
-const ExchangeRow = ({ addingMode = false }: ExchangeRowProps) => {
+const ExchangeRow = ({ addingMode = false, onSelect }: ExchangeRowProps) => {
   return (
     <div
       className={`flex flex-row justify-between rounded-md p-5 ${
@@ -13,7 +16,11 @@ const ExchangeRow = ({ addingMode = false }: ExchangeRowProps) => {
       }`}
     >
       <div className="flex flex-col">
-        <Select className="self-baseline" options={currencies} />
+        <Select
+          onSelect={(value) => onSelect(value as string)}
+          className="self-baseline"
+          options={currencies}
+        />
         <Balance value={200} currency="$" />
       </div>
       <div className="flex flex-row items-center">
