@@ -48,7 +48,9 @@ const ExchangeRow = ({
         />
       </div>
       <div className="flex flex-row items-center">
-        <span className="text-2xl">{addingMode ? "+" : "-"}</span>
+        <span className="text-2xl self-start mt-1">
+          {addingMode ? "+" : "-"}
+        </span>
         <div className="flex flex-col">
           <Input
             min={0}
