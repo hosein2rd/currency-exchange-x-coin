@@ -78,7 +78,9 @@ function App() {
           />
         </div>
         <Button
-          disabled={loading || c1 === c2}
+          disabled={
+            loading || c1 === c2 || (globalAmount || 0) > wallet[c1].balance
+          }
           onClick={exchange}
           className="mt-4"
         >
