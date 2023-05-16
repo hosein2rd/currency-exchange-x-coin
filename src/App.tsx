@@ -3,18 +3,24 @@ import Button from "./components/Button";
 import ExchangeRow from "./components/ExchangeRow";
 import ConversionRate from "./components/ConversionRate";
 import { getConversionRate } from "./api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [c1, setC1] = useState("USD");
   const [c2, setC2] = useState("USD");
-  const [text, setText] = useState("");
+  const [text, setText] = useState("--");
 
   useEffect(() => {
     if (!c1 || !c2) return;
 
-    getConversionRate(c1, c2).then((data) =>
-      setText(`1 ${c1} = ${data.result} ${c2}`)
-    );
+    getConversionRate(c1, c2)
+      .then((data) =>
+        setText(data.result ? `1 ${c1} = ${data.result} ${c2}` : "--")
+      )
+      .catch(() =>
+        toast("Something Heppend!", { type: "error", theme: "colored" })
+      );
   }, [c1, c2]);
 
   return (
@@ -30,6 +36,7 @@ function App() {
         </div>
         <Button className="mt-4">Exchange</Button>
       </div>
+      <ToastContainer />
     </div>
   );
 }
