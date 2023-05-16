@@ -51,6 +51,7 @@ const ExchangeRow = ({
         <span className="text-2xl">{addingMode ? "+" : "-"}</span>
         <div className="flex flex-col">
           <Input
+            min={0}
             value={amount}
             type="number"
             className="w-32"

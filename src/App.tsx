@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { WalletContext } from "./contexts/Wallet";
 
 function App() {
-  const [wallet] = useContext(WalletContext);
+  const [wallet, setWallet] = useContext(WalletContext);
   const [c1, setC1] = useState("USD");
   const [c2, setC2] = useState("USD");
   const [text, setText] = useState("--");
@@ -31,6 +31,20 @@ function App() {
         toast("Something Heppend!", { type: "error", theme: "colored" })
       );
   }, [c1, c2, wallet]);
+
+  const exchange = () => {
+    if (!globalAmount || c1 === c2) return;
+    if (wallet[c1].balance < globalAmount) return;
+
+    const xwallet = wallet;
+
+    xwallet[c1].balance -= +globalAmount;
+    xwallet[c2].balance += +globalAmount * coefficient.current;
+
+    setWallet(xwallet);
+
+    setGlobalAmount(undefined);
+  };
 
   return (
     <div className="w-screen h-screen bg-gray-200 flex justify-center items-center">
@@ -57,7 +71,9 @@ function App() {
             addingMode={false}
           />
         </div>
-        <Button className="mt-4">Exchange</Button>
+        <Button onClick={exchange} className="mt-4">
+          Exchange
+        </Button>
       </div>
       <ToastContainer />
     </div>
