@@ -14,9 +14,14 @@ function App() {
   const [text, setText] = useState("--");
   const coefficient = useRef<number>(1);
   const [globalAmount, setGlobalAmount] = useState<number>();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!c1 || !c2) return;
+    if (c1 === c2) return;
+
+    setText("loading...");
+    setLoading(true);
 
     getConversionRate(c1, c2)
       .then(({ result }) => {
@@ -29,7 +34,8 @@ function App() {
       })
       .catch(() =>
         toast("Something Heppend!", { type: "error", theme: "colored" })
-      );
+      )
+      .finally(() => setLoading(false));
   }, [c1, c2, wallet]);
 
   const exchange = () => {
@@ -71,7 +77,11 @@ function App() {
             addingMode={false}
           />
         </div>
-        <Button onClick={exchange} className="mt-4">
+        <Button
+          disabled={loading || c1 === c2}
+          onClick={exchange}
+          className="mt-4"
+        >
           Exchange
         </Button>
       </div>
