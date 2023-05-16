@@ -30,7 +30,7 @@ const ExchangeRow = ({
   return (
     <div
       className={`flex flex-row justify-between rounded-md p-5 ${
-        !addingMode ? "bg-gray-100" : "bg-white"
+        addingMode ? "bg-gray-100" : "bg-white"
       }`}
     >
       <div className="flex flex-col">
@@ -64,7 +64,7 @@ const ExchangeRow = ({
           />
           <span
             className={`text-red-600 ${
-              addingMode && (amount || 0) > wallet[currency].balance
+              !addingMode && (amount || 0) > wallet[currency].balance
                 ? "visible"
                 : "invisible"
             }`}

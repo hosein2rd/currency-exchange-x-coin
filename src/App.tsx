@@ -60,7 +60,7 @@ function App() {
             amount={globalAmount}
             onChangeAmount={(value) => setGlobalAmount(value)}
             onSelect={(value) => setC1(value)}
-            addingMode
+            addingMode={false}
           />
           <ConversionRate
             className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
@@ -74,7 +74,7 @@ function App() {
               setGlobalAmount(value / coefficient.current)
             }
             onSelect={(value) => setC2(value)}
-            addingMode={false}
+            addingMode
           />
         </div>
         <Button
