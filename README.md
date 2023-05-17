@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo
+
+Open [live demo](https://hosein2rd.github.io/currency-exchange-x-coin/).
+
 ## Available Scripts
 
 In the project directory, you can run:
