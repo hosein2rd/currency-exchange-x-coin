@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/currency-exchange-x-coin/static/css/main.d7d39e2f.css",
+    "main.js": "/currency-exchange-x-coin/static/js/main.a0875b2e.js",
+    "static/js/787.fec58e52.chunk.js": "/currency-exchange-x-coin/static/js/787.fec58e52.chunk.js",
+    "index.html": "/currency-exchange-x-coin/index.html",
+    "main.d7d39e2f.css.map": "/currency-exchange-x-coin/static/css/main.d7d39e2f.css.map",
+    "main.a0875b2e.js.map": "/currency-exchange-x-coin/static/js/main.a0875b2e.js.map",
+    "787.fec58e52.chunk.js.map": "/currency-exchange-x-coin/static/js/787.fec58e52.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7d39e2f.css",
+    "static/js/main.a0875b2e.js"
+  ]
+}
